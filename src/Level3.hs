@@ -6,9 +6,7 @@ module Level3 where
 
 import Level2 (first)
 import MetaUtils (todo)
-
--- | Заглушка для типов: замените её своим типом.
-data Todo
+import TypeCheck (Todo)
 
 
 -- 3.1. Типы для пар, вариантов и чисел
