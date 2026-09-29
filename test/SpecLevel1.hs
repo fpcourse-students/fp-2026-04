@@ -4,7 +4,6 @@ import Data.Char (digitToInt)
 import Data.List (genericLength)
 import Level1 hiding (counterexample)
 import Level1 qualified
-import Prelude hiding (fst, snd)
 import Test.Prelude
 
 tests :: NamedTests
@@ -18,8 +17,8 @@ tests = nameTests 1
 
 testPair :: Test
 testPair = TestList
-  [ propertyToTest "fst law satisfied" \(x :: Char, y :: Int) -> fst (pair x y) === x
-  , propertyToTest "snd law satisfied" \(x :: Int, y :: Char) -> snd (pair x y) === y
+  [ propertyToTest "fst law satisfied" \(x :: Char, y :: Int) -> fstChurch (pair x y) === x
+  , propertyToTest "snd law satisfied" \(x :: Int, y :: Char) -> sndChurch (pair x y) === y
   ]
 
 testEvenOdd :: Test

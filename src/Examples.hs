@@ -31,15 +31,13 @@ module Examples where
 * (\x -> x + x) 3
 * Последовательно 3, it, it + it, it + it
 * :t (5, True)
-* :t Prelude.fst
-  (в этой домашке короткие имена fst и snd заняты вашими функциями из задачи 1.1,
-  поэтому стандартные вызываются с именем модуля)
+* :t fst
 * :t () :: ()
 * :t (,)
 * :t (x, y) :: (a, b)
 * :t (,) :: a -> b -> (,) a b
-* Prelude.fst (5, True)
-* Prelude.snd (5, True)
+* fst (5, True)
+* snd (5, True)
 * if 3 == 3 then 15 else 14
 * if 3 == 3 then 15 else True
 * let x = 15 in x + x

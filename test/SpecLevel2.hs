@@ -1,10 +1,8 @@
 module SpecLevel2 where
 
 import Data.Either (lefts)
-import Data.Either qualified as Either
 import Data.Set qualified as Set
 import Level2
-import Prelude hiding (fst, snd, either, pred)
 import Test.Prelude
 
 tests :: NamedTests
@@ -20,20 +18,20 @@ testVariant :: Test
 testVariant = TestList
   [ propertyToTest "variant inl law satisfied"
       \(x :: Char, Fun _ f :: Fun Char Int, Fun _ g :: Fun Int Int) ->
-        either f g (inl x) === f x
+        eitherChurch f g (inl x) === f x
   , propertyToTest "variant inr law satisfied"
       \(x :: Int, Fun _ f :: Fun Char Int, Fun _ g :: Fun Int Int) ->
-        either f g (inr x) === g x
+        eitherChurch f g (inr x) === g x
   ]
 
 testPred :: Test
 testPred = TestList
   [ propertyToTest "pred 0 law satisfied"
       \(Fun _ f :: Fun Int Int, ini :: Int) ->
-        pred zero f ini === ini
+        predChurch zero f ini === ini
   , propertyToTest "pred suc law satisfied"
       \(Positive n :: Positive Int, Fun _ f, ini :: Int) ->
-        pred (toChurch n) f ini === toChurch (n - 1) f ini
+        predChurch (toChurch n) f ini === toChurch (n - 1) f ini
   ]
   where
     zero _ z = z
@@ -63,8 +61,8 @@ testSet = TestList
       forAll (oneof [elements ss, arbitrary]) \s ->
         elem s ss === set s
   , propertyToTest "remove works correctly" \(NonEmpty ini, actions :: [Either String String]) ->
-      let expected = foldr (Either.either Set.delete Set.insert) (Set.fromList ini) actions in
-      let actual = foldr (Either.either (flip (///)) (flip (+++))) (setOf ini) actions in
+      let expected = foldr (either Set.delete Set.insert) (Set.fromList ini) actions in
+      let actual = foldr (either (flip (///)) (flip (+++))) (setOf ini) actions in
       let existing = elements $ "" : Set.toList expected in
       let removed = elements $ "" : lefts actions in
       forAll (oneof [existing, removed, arbitrary]) \s ->

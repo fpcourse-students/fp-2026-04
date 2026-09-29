@@ -9,28 +9,28 @@
 -- Условие каждой задачи — комментарий перед её кодом; решение пишется на месте заглушки @todo@.
 module Level2 where
 
--- Скрываем стандартные определения, чтобы не было конфликта имён.
-import Prelude hiding (fst, snd, either, pred)
-import Level1 (pair, fst, snd)
+import Level1 (pair, fstChurch, sndChurch)
 import MetaUtils (todo)
 
 
 -- 2.1. Варианты из λ-исчисления
 --
--- Оттранслируйте в Haskell варианты в стиле чистого λ-исчисления (по Чёрчу).
+-- Оттранслируйте в Haskell варианты в стиле чистого λ-исчисления (по Чёрчу): термы inl,
+-- inr и either. Имя either в Haskell занято стандартной функцией, ваша называется eitherChurch.
 
 inl = todo "2.1 inl"
 inr = todo "2.1 inr"
-either = todo "2.1 either"
+eitherChurch = todo "2.1 eitherChurch"
 
 
 -- 2.2. Предыдущее число
 --
 -- Оттранслируйте в Haskell λ-терм, используя пары из задачи 1.1:
 -- pred := λn s z. snd (n (λp. pair (s (fst p)) (fst p)) (pair z z))
+-- В Haskell это predChurch, а fst и snd в нём — ваши fstChurch и sndChurch.
 -- Ознакомьтесь с тем, как этот код тестируется в test/SpecLevel2.hs.
 
-pred = todo "2.2"
+predChurch = todo "2.2"
 
 
 -- 2.3. Простые числа

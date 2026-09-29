@@ -8,19 +8,19 @@
 -- Условие каждой задачи — комментарий перед её кодом; решение пишется на месте заглушки @todo@.
 module Level1 where
 
--- Скрываем стандартные определения, чтобы не было конфликта имён.
-import Prelude hiding (fst, snd)
 import MetaUtils (todo)
 
 
 -- 1.1. Пары из λ-исчисления
 --
--- Оттранслируйте в Haskell пары в стиле чистого λ-исчисления.
+-- Оттранслируйте в Haskell пары в стиле чистого λ-исчисления: термы pair, fst и snd.
+-- Имена fst и snd в Haskell заняты стандартными функциями для обычных пар, поэтому
+-- ваши называются fstChurch и sndChurch.
 -- Ознакомьтесь с тем, как это задание тестируется в test/SpecLevel1.hs.
 
 pair = todo "1.1 pair"
-fst = todo "1.1 fst"
-snd = todo "1.1 snd"
+fstChurch = todo "1.1 fstChurch"
+sndChurch = todo "1.1 sndChurch"
 
 
 -- 1.2. Взаимная рекурсия
