@@ -5,11 +5,13 @@
 
 -- | Домашка 4. Введение в Haskell: уровень 2.
 --
--- Условие каждой задачи — комментарий перед её кодом; решение пишется на месте заглушки @todo@.
+-- Условие каждой задачи — комментарий перед её кодом; решение пишется на месте заглушки @todo@,
+-- а в задаче 2.6 — на месте заглушки 'Todo' в типе.
 module Level2 where
 
 import Level1 (pair, fstChurch, sndChurch)
 import MetaUtils (todo)
+import TypeCheck (Todo)
 
 
 -- 2.1. Варианты из λ-исчисления
@@ -73,3 +75,21 @@ emptySet = todo "2.4 emptySet"
 
 first :: (a -> a') -> (a, b) -> (a', b)
 first = todo "2.5"
+
+
+-- 2.6. Предскажите тип: посложнее
+--
+-- Правила те же, что в задаче 1.6: замените Todo наиболее общим типом выражения
+-- из комментария, тело оставьте заглушкой.
+
+-- uncurry (flip const)
+typeOfUncurryFlipConst :: Todo
+typeOfUncurryFlipConst = todo "2.6 uncurry (flip const)"
+
+-- curry id
+typeOfCurryId :: Todo
+typeOfCurryId = todo "2.6 curry id"
+
+-- flip (.)
+typeOfFlipCompose :: Todo
+typeOfFlipCompose = todo "2.6 flip (.)"

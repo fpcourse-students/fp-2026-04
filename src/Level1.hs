@@ -5,10 +5,12 @@
 
 -- | Домашка 4. Введение в Haskell: уровень 1, обязательные задачи.
 --
--- Условие каждой задачи — комментарий перед её кодом; решение пишется на месте заглушки @todo@.
+-- Условие каждой задачи — комментарий перед её кодом; решение пишется на месте заглушки @todo@,
+-- а в задаче 1.6 — на месте заглушки 'Todo' в типе.
 module Level1 where
 
 import MetaUtils (todo)
+import TypeCheck (Todo)
 
 
 -- 1.1. Пары из λ-исчисления
@@ -76,3 +78,23 @@ itemAt = todo "1.4"
 
 nSumDigits :: Integer -> (Integer, Integer)
 nSumDigits = todo "1.5"
+
+
+-- 1.6. Предскажите тип
+--
+-- Над каждой заглушкой в комментарии записано выражение. Замените Todo его типом —
+-- наиболее общим, имена типовых переменных выбирайте любые. Тело оставьте заглушкой:
+-- проверяется только записанный вами тип.
+-- Сначала запишите ответ, и только потом сверьтесь с интерпретатором командой :t.
+
+-- uncurry const
+typeOfUncurryConst :: Todo
+typeOfUncurryConst = todo "1.6 uncurry const"
+
+-- curry fst
+typeOfCurryFst :: Todo
+typeOfCurryFst = todo "1.6 curry fst"
+
+-- flip (,)
+typeOfFlipPair :: Todo
+typeOfFlipPair = todo "1.6 flip (,)"

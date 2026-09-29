@@ -3,7 +3,9 @@ module SpecLevel2 where
 import Data.Either (lefts)
 import Data.Set qualified as Set
 import Level2
+import Predictions qualified
 import Test.Prelude
+import TypeCheck
 
 tests :: NamedTests
 tests = nameTests 2
@@ -12,6 +14,7 @@ tests = nameTests 2
   , testIsPrime
   , testSet
   , testFirst
+  , testPredictions
   ]
 
 testVariant :: Test
@@ -79,4 +82,12 @@ testFirst = TestList
   [ propertyToTest "first applies the function to the first component"
       \(Fun _ f :: Fun Int Char, x :: Int, y :: Bool) -> first f (x, y) === (f x, y)
   , TestCase $ assertEqual "first changes the type" ("1", 'c') $ first show (1 :: Int, 'c')
+  ]
+
+-- | См. задачу 1.6 в "SpecLevel1".
+testPredictions :: Test
+testPredictions = TestList
+  [ assertShape "2.6 uncurry (flip const)" $(shapeOfType 'Predictions.uncurryFlipConst) $(shapeOfType 'typeOfUncurryFlipConst)
+  , assertShape "2.6 curry id" $(shapeOfType 'Predictions.curryId) $(shapeOfType 'typeOfCurryId)
+  , assertShape "2.6 flip (.)" $(shapeOfType 'Predictions.flipCompose) $(shapeOfType 'typeOfFlipCompose)
   ]

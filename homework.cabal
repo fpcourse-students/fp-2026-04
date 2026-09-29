@@ -161,6 +161,7 @@ test-suite homework-test
       SpecLevel1
       SpecLevel2
       SpecLevel3
+      Predictions
     build-depends:
       homework
   ghc-options:

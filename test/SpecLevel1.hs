@@ -4,7 +4,9 @@ import Data.Char (digitToInt)
 import Data.List (genericLength)
 import Level1 hiding (counterexample)
 import Level1 qualified
+import Predictions qualified
 import Test.Prelude
+import TypeCheck
 
 tests :: NamedTests
 tests = nameTests 1
@@ -13,6 +15,7 @@ tests = nameTests 1
   , testCounterexample
   , testItemAt
   , testNSumDigits
+  , testPredictions
   ]
 
 testPair :: Test
@@ -50,4 +53,13 @@ testNSumDigits = TestList
   [ propertyToTest "nSumDigits works well" \n ->
       let ds = map (toInteger . digitToInt) $ show (abs n :: Integer) in
       nSumDigits n === (genericLength ds, sum ds)
+  ]
+
+-- | Тип сравнивается с типом, который GHC вывел для выражения из условия (см. "Predictions"
+-- и "TypeCheck"): имена переменных не важны, нужен наиболее общий тип.
+testPredictions :: Test
+testPredictions = TestList
+  [ assertShape "1.6 uncurry const" $(shapeOfType 'Predictions.uncurryConst) $(shapeOfType 'typeOfUncurryConst)
+  , assertShape "1.6 curry fst" $(shapeOfType 'Predictions.curryFst) $(shapeOfType 'typeOfCurryFst)
+  , assertShape "1.6 flip (,)" $(shapeOfType 'Predictions.flipPair) $(shapeOfType 'typeOfFlipPair)
   ]
