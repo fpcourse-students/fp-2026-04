@@ -1,4 +1,3 @@
--- В этом файле можно не приписывать типы.
 {-# OPTIONS_GHC -Wno-missing-signatures #-}
 {-# OPTIONS_GHC -Wno-type-defaults #-}
 -- Можно писать лямбды в своё удовольствие.
