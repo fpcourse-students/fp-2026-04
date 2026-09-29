@@ -14,9 +14,9 @@ tests = nameTests 3
 -- число параметров синонима и порядок аргументов — важны.
 testTypes :: Test
 testTypes = TestList
-  [ assertShape "3.1 Pair" "SHAPE_PAIR" $(synonymShape ''Pair)
-  , assertShape "3.1 Variant" "SHAPE_VARIANT" $(synonymShape ''Variant)
-  , assertShape "3.1 Nat" "SHAPE_NAT" $(synonymShape ''Nat)
+  [ assertShape "3.1 Pair" "2 (forall v3 (-> (-> v1 (-> v2 v3)) v3))" $(synonymShape ''Pair)
+  , assertShape "3.1 Variant" "2 (forall v3 (-> (-> v1 v3) (-> (-> v2 v3) v3)))" $(synonymShape ''Variant)
+  , assertShape "3.1 Nat" "0 (forall v1 (-> (-> v1 v1) (-> v1 v1)))" $(synonymShape ''Nat)
   ]
 
 testDeepFirst :: Test
