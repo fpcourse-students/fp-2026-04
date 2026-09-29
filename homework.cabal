@@ -102,6 +102,16 @@ library
   if flag(lambda)
     buildable: False
 
+-- Пример приложения: `cabal run homework-exe`. Задач в нём нет.
+executable homework-exe
+  import: shared
+  hs-source-dirs: app
+  main-is: Main.hs
+  build-depends:
+    homework
+  if flag(lambda)
+    buildable: False
+
 library meta-utils
   import: shared
   hs-source-dirs: meta-utils/src
