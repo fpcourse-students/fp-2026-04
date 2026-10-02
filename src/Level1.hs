@@ -89,12 +89,12 @@ nSumDigits = todo "1.5"
 
 -- uncurry const
 typeOfUncurryConst :: Todo
-typeOfUncurryConst = todo "1.6 uncurry const"
+typeOfUncurryConst = undefined
 
 -- curry fst
 typeOfCurryFst :: Todo
-typeOfCurryFst = todo "1.6 curry fst"
+typeOfCurryFst = undefined
 
 -- flip (,)
 typeOfFlipPair :: Todo
-typeOfFlipPair = todo "1.6 flip (,)"
+typeOfFlipPair = undefined
